@@ -26,12 +26,14 @@ let date = new Date()
 
 let dateText = date.toLocaleDateString("ro-RO", options)
 
-let cursValutarLeiEuro = document.querySelectorAll("td")[1].textContent
+cursValutarLeiEuro = 4.9432
+
+// let cursValutarLeiEuro = document.querySelectorAll("td")[1].textContent
 
 
 cursValutarText.innerHTML = "Curs BNR " + dateText + ":  1€ = " + cursValutarLeiEuro + " lei"
 
-cursValutarLeiEuro = parseFloat(cursValutarLeiEuro)
+// cursValutarLeiEuro = parseFloat(cursValutarLeiEuro)
 
 function verificaSuma(suma, valutaLayout){
     if(valutaLayout==="euro")
