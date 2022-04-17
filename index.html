@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <script src="layout.js" defer></script>
+    <script src="app.js" defer></script>
+    <title>Calculator Taxe Notariale</title>
+</head>
+<body>
+
+    <div id="container">
+        <h1>Calculator Taxe Notariale</h1>
+
+        <div id="calculator-wrapper">
+            <nav>
+                <ul>
+                    <li id="nav-vanzare" class="selected">Vanzare</li>
+                    <li id="nav-ipoteca" class="disabled">Ipoteca</li>
+                    <li id="nav-donatie" class="disabled">Donatie</li>
+                    <li id="nav-noua-casa" class="disabled">Noua casa</li>
+                    <li id="nav-succesiune" class="disabled">Succesiune</li>
+                </ul>
+            </nav>
+            <div id="calculator">
+                <span id="curs-valutar">Curs BNR 16 aprilie: 1€ = 4.9432 lei</span>
+
+                <div id="calculator-vanzare" class="calculator-layout">
+                    <div>
+                        <p>Alegeti Moneda:</p>
+                        <div>
+                            <input type="radio" id="calculator-vanzare-valuta-euro" class="input-valuta" name="calculator-vanzare-valuta" value="euro" checked="true">
+                            <label for="calculator-vanzare-valuta-euro">Euro</label>
+                            <input type="radio" id="calculator-vanzare-valuta-lei" class="input-valuta" name="calculator-vanzare-valuta" value="lei">
+                            <label for="calculator-vanzare-valuta-lei">Lei</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Valoare imobil:</p>
+                        <input id="calculator-vanzare-suma" class="input-suma" type="text" placeholder="Scrie suma">
+                    </div>
+
+                    <div>
+                        <p>Cumparatorul este persoana:</p>
+                        <div>
+                            <input type="radio" id="calculator-vanzare-c-p-fizica" name="calculator-vanzare-cumparator" value="fizica" class="input-statut-cumparator" checked="true">
+                            <label for="calculator-vanzare-c-p-fizica">Fizica</label>
+                            <input type="radio" id="calculator-vanzare-c-p-juridica" name="calculator-vanzare-cumparator" value="juridica" class="input-statut-cumparator">
+                            <label for="calculator-vanzare-c-p-juridica">Juridica</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Vanzatorul este persoana:</p>
+                        <div>
+                            <input type="radio" id="calculator-vanzare-v-p-fizica" class="input-statut-vanzator" name="calculator-vanzare-vanzator" value="fizica" checked="true">
+                            <label for="calculator-vanzare-v-p-fizica">Fizica</label>
+                            <input type="radio" id="calculator-vanzare-v-p-juridica" class="input-statut-vanzator" name="calculator-vanzare-vanzator" value="juridica">
+                            <label for="calculator-vanzare-v-p-juridica">Juridica</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Cumparatorul plateste:</p>
+                        <div>
+                            <div>
+                                <span>Onorariu notarial vânzare: </span><span id="calculator-vanzare-onorariu" class="important">0 Lei</span><span> (TVA inclus)</span>
+                            </div>
+                            <div>
+                                <span>Taxă ANCPI intabulare: </span><span id="calculator-vanzare-ANCPI" class="important">0 Lei</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Vanzatorul plateste:</p>
+                        <div>
+                            <div id="calculator-vanzare-extras-carte-funciara">
+                                <span>Extras de carte funciară: </span><span id="calculator-vanzare-carte-funciara-valoare" class="important">40 Lei</span>
+                            </div>
+                            <div id="calculator-vanzare-impozit">
+                                <span>Impozit către stat: </span><span id="calculator-vanzare-impozit-valoare" class="important">0 Lei</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="calculator-ipoteca" class="calculator-layout">
+                        <div>
+                            <p>Alegeti Moneda:</p>
+                            <div>
+                                <input type="radio" id="calculator-ipoteca-valuta-euro" class="input-valuta" name="calculator-ipoteca-valuta" value="euro" checked="true">
+                                <label for="calculator-ipoteca-valuta-euro">Euro</label>
+                                <input type="radio" id="calculator-ipoteca-valuta-lei" class="input-valuta" name="calculator-ipoteca-valuta" value="lei">
+                                <label for="calculator-ipoteca-valuta-lei">Lei</label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <p>Valoare credit:</p>
+                            <input id="calculator-ipoteca-suma" class="input-suma" type="text" placeholder="Scrie suma">
+                        </div>
+                        
+                        <div>
+                            <p>Cumparatorul plateste:</p>
+                            <div>
+                                <div>
+                                    <span>Onorariu notarial ipoteca: </span><span id="calculator-ipoteca-onorariu" class="important">0 Lei</span><span> (TVA inclus)</span>
+                                </div>
+                                <div>
+                                    <span>Taxă ANCPI intabulare: </span><span id="calculator-ipoteca-ANCPI" class="important">0 Lei</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                </div>
+
+                <div id="calculator-donatie" class="calculator-layout">
+                    <div>
+                        <p>Alegeti Moneda:</p>
+                        <div>
+                            <input type="radio" id="calculator-donatie-valuta-euro" class="input-valuta" name="calculator-donatie-valuta" value="euro" checked="true">
+                            <label for="calculator-donatie-valuta-euro">Euro</label>
+                            <input type="radio" id="calculator-donatie-valuta-lei" class="input-valuta" name="calculator-donatie-valuta" value="lei">
+                            <label for="calculator-donatie-valuta-lei">Lei</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Valoare imobil:</p>
+                        <input id="calculator-donatie-suma" class="input-suma" type="text" placeholder="Scrie suma">
+                    </div>
+
+                    <div>
+                        <p>Cumparatorul este persoana:</p>
+                        <div>
+                            <input type="radio" id="calculator-donatie-c-p-fizica" class="input-statut-cumparator" name="calculator-donatie-cumparator" value="fizica" checked="true">
+                            <label for="calculator-donatie-c-p-fizica">Fizica</label>
+                            <input type="radio" id="calculator-donatie-c-p-juridica" class="input-statut-cumparator" name="calculator-donatie-cumparator" value="juridica">
+                            <label for="calculator-donatie-c-p-juridica">Juridica</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Vanzatorul este persoana:</p>
+                        <div>
+                            <input type="radio" id="calculator-donatie-v-p-fizica" class="input-statut-vanzator" name="calculator-donatie-vanzator" value="fizica" checked="true">
+                            <label for="calculator-donatie-v-p-fizica">Fizica</label>
+                            <input type="radio" id="calculator-donatie-v-p-juridica" class="input-statut-vanzator" name="calculator-donatie-vanzator" value="juridica">
+                            <label for="calculator-donatie-v-p-juridica">Juridica</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Cumparatorul plateste:</p>
+                        <div>
+                            <div>
+                                <span>Onorariu notarial donatie: </span><span id="calculator-donatie-onorariu" class="important">0 Lei</span><span> (TVA inclus)</span>
+                            </div>
+                            <div>
+                                <span>Taxă ANCPI intabulare: </span><span id="calculator-donatie-ANCPI" class="important">0 Lei</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Vanzatorul plateste:</p>
+                        <div>
+                            <div id="calculator-donatie-impozit">
+                                <span>Impozit către stat: </span><span id="calculator-donatie-impozit-valoare" class="important">0 Lei</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="calculator-noua-casa" class="calculator-layout">
+                    <div>
+                        <p>Alegeti Moneda:</p>
+                        <div>
+                            <input type="radio" id="calculator-noua-casa-valuta-euro" class="input-valuta" name="calculator-noua-casa-valuta" value="euro" checked="true">
+                            <label for="calculator-noua-casa-valuta-euro">Euro</label>
+                            <input type="radio" id="calculator-noua-casa-valuta-lei" class="input-valuta" name="calculator-noua-casa-valuta" value="lei">
+                            <label for="calculator-noua-casa-valuta-lei">Lei</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Valoare imobil:</p>
+                        <input type="text" id="calculator-noua-casa-suma" class="input-suma" placeholder="Scrie suma">
+                    </div>
+
+                    <div>
+                        <p>Cumparatorul este persoana:</p>
+                        <div>
+                            <input type="radio" id="calculator-noua-casa-c-p-fizica" class="input-statut-cumparator" name="calculator-noua-casa-cumparator" value="fizica" checked="true">
+                            <label for="calculator-noua-casa-c-p-fizica">Fizica</label>
+                            <input type="radio" id="calculator-noua-casa-c-p-juridica" class="input-statut-cumparator" name="calculator-noua-casa-cumparator" value="juridica">
+                            <label for="calculator-noua-casa-c-p-juridica">Juridica</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Vanzatorul este persoana:</p>
+                        <div>
+                            <input type="radio" id="calculator-noua-casa-v-p-fizica" class="input-statut-vanzator" name="calculator-noua-casa-vanzator" value="fizica" checked="true">
+                            <label for="calculator-noua-casa-v-p-fizica">Fizica</label>
+                            <input type="radio" id="calculator-noua-casa-v-p-juridica" class="input-statut-vanzator" name="calculator-noua-casa-vanzator" value="juridica">
+                            <label for="calculator-noua-casa-v-p-juridica">Juridica</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Cumparatorul plateste:</p>
+                        <div>
+                            <div>
+                                <span>Onorariu notarial Noua Casa: </span><span id="calculator-noua-casa-onorariu" class="important">0 Lei</span><span> (TVA inclus)</span>
+                            </div>
+                            <div>
+                                <span>Taxă ANCPI intabulare: </span><span id="calculator-noua-casa-ANCPI" class="important">0 Lei</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="calculator-succesiune" class="calculator-layout">
+                    <div>
+                        <p>Alegeti Moneda:</p>
+                        <div>
+                            <input type="radio" id="calculator-succesiune-valuta-euro" class="input-valuta" name="calculator-succesiune-valuta" value="euro" checked="true">
+                            <label for="calculator-succesiune-valuta-euro">Euro</label>
+                            <input type="radio" id="calculator-succesiune-valuta-lei" class="input-valuta" name="calculator-succesiune-valuta" value="lei">
+                            <label for="calculator-succesiune-valuta-lei">Lei</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Valoare bunuri mostenite:</p>
+                        <input type="text" id="calculator-succesiune-suma" class="input-suma" placeholder="Scrie suma">
+                    </div>
+
+                    <div>
+                        <p>Ani trecuti de la deces:</p>
+                        <div>
+                            <input type="radio" id="calculator-succesiune-ani-deces-less" class="input-ani-deces" name="calculator-succesiune-ani-deces" value="mai-putin-de-2-ani" checked="true">
+                            <label for="calculator-succesiune-valuta-euro">Mai putin de 2 ani</label>
+                            <input type="radio" id="calculator-succesiune-ani-deces-more" class="input-ani-deces" name="calculator-succesiune-ani-deces" value="mai-mult-de-2-ani">
+                            <label for="calculator-succesiune-ani-deces">Mai mult de 2 ani</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p>Moștenitorii plătesc:</p>
+                        <div>
+                            <div>
+                                <span>Onorariu notarial certificat mostenitor: </span><span id="calculator-succesiune-onorariu" class="important">0 Lei</span><span> (TVA inclus)</span>
+                            </div>
+                            <div>
+                                <span>Taxă ANCPI intabulare: </span><span id="calculator-succesiune-ANCPI" class="important">0 Lei</span>
+                            </div>
+                            <div id="calculator-succesiune-impozit">
+                                <span>Impozit catre Stat: </span><span id="calculator-succesiune-impozit-valoare" class="important">0 Lei</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="curs-valutar-BNR">
+            !-- INCEPUT SCRIPT PRELUARE CURS VALUTAR -->
+            <script type="text/javascript" language="javascript" src="http://www.curs-valutar-bnr.ro/preluare_curs.php?lw=194&cft=e8ba00&ctt=ffffff&ttb=0&cc=f2f2f2&cfb=ffffff&ct=000000&val[]=8&val[]=19&mf=12&avc=1&ac=0&aod=0"></script><noscript><h2><a href="http://cursvalutar.dailybusiness.ro/" title="Curs valutar BNR">Curs valutar BNR</a></h2></noscript>
+            <!-- SFARSIT SCRIPT PRELUARE CURS VALUTAR -->
+        </div>
+
+    </div>
+
+</body>
+</html>
